@@ -19,6 +19,7 @@ jobs:
           echo "COMMUNITY_RESOURCES=.github,community,microcks-quickstarters,community-mocks" >> $GITHUB_ENV
           echo "EXCLUDED_ARCHIVED_REPOS=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
       - name: Contact env
-        run: echo ::set-env name=ENV-CONCATED::${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }}
+        run: echo "ENV-CONCATED=${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }}" >> $GITHUB_ENV
+       
       - name: Test it
         run: echo $ENV-CONCATED
