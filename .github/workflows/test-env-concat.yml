@@ -8,6 +8,7 @@ jobs:
   # Set environment variables for all repositories concerned by this global workflow
   set-env:
     runs-on: ubuntu-latest
+    name: set and test env
     steps:
       - name: Set Delivered Components, Demonstrations, Documentation, Community resources and excluded archived repositories
         run: |
