@@ -20,10 +20,11 @@ jobs:
           echo "EXCLUDED_ARCHIVED_REPOS=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
 
           # Concatenate environment variables and assign to ADOPTERS
-          echo "ADOPTERS=${EXCLUDED_ARCHIVED_REPOS},${DEMONSTRATIONS},${DOCUMENTATION}" >> $GITHUB_ENV
+          #echo "ADOPTERS=${EXCLUDED_ARCHIVED_REPOS},${DEMONSTRATIONS},${DOCUMENTATION}" >> $GITHUB_ENV
+          echo "ADOPTERS=${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DEMONSTRATIONS }},${{ env.DOCUMENTATION }}" >> $GITHUB_ENV
         
       - name: Contact env
-        run: echo "${{ env.ADOPTERS }}"
+        run: echo "${ADOPTERS}"
         #run: echo "${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }},${{ env.COMMUNITY_RESOURCES }}"
         
    
