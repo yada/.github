@@ -21,7 +21,8 @@ jobs:
 
           # Concatenate environment variables and assign to ADOPTERS
           #echo "ADOPTERS=${EXCLUDED_ARCHIVED_REPOS},${DEMONSTRATIONS},${DOCUMENTATION}" >> $GITHUB_ENV
-          echo "ADOPTERS=${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DEMONSTRATIONS }},${{ env.DOCUMENTATION }}" >> $GITHUB_ENV
+          echo ADOPTERS='${{ env.EXCLUDED_ARCHIVED_REPOS }}','${{ env.DEMONSTRATIONS }}','${{ env.DOCUMENTATION }}' >> $GITHUB_ENV
+
           run: echo "${{ env.ADOPTERS }}"
 
       - name: Contact env
