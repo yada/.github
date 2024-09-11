@@ -18,7 +18,9 @@ jobs:
           echo "DOCUMENTATION=microcks.io" >> $GITHUB_ENV
           echo "COMMUNITY_RESOURCES=.github,community,microcks-quickstarters,community-mocks" >> $GITHUB_ENV
           echo "EXCLUDED_ARCHIVED_REPOS=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
+          echo "ADOPTERS=${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DEMONSTRATIONS }},${{ env.DOCUMENTATION }}" >> $GITHUB_ENV
       - name: Contact env
-        run: echo "${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }},${{ env.COMMUNITY_RESOURCES }}"
+        run: echo "${{ env.ADOPTERS }}"
+        #run: echo "${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }},${{ env.COMMUNITY_RESOURCES }}"
         
    
