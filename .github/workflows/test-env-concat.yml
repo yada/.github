@@ -1,4 +1,5 @@
 name: test-env-concat
+
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
   # ucomment the following line if you want to run the workflow manually
@@ -17,7 +18,7 @@ jobs:
           echo "DOCUMENTATION=microcks.io" >> $GITHUB_ENV
           echo "COMMUNITY_RESOURCES=.github,community,microcks-quickstarters,community-mocks" >> $GITHUB_ENV
           echo "EXCLUDED_ARCHIVED_REPOS=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
-    - name: Contact env
-      run: echo ::set-env name=ENV-CONCATED::${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }}
-    - name: Test it
-      run: echo $ENV-CONCATED
+      - name: Contact env
+        run: echo ::set-env name=ENV-CONCATED::${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }}
+      - name: Test it
+        run: echo $ENV-CONCATED
