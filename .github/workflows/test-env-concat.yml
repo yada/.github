@@ -23,7 +23,6 @@ jobs:
           #echo "ADOPTERS=${EXCLUDED_ARCHIVED_REPOS},${DEMONSTRATIONS},${DOCUMENTATION}" >> $GITHUB_ENV
           #echo "ADOPTERS='${{ env.EXCLUDED_ARCHIVED_REPOS }}','${{ env.DEMONSTRATIONS }}','${{ env.DOCUMENTATION }}'" >> $GITHUB_ENV
           
-        run: |
           ADOPTERS_CONCAT=$(cat << EOF
           '${{ env.EXCLUDED_ARCHIVED_REPOS }}'
           ,'${{ env.DEMONSTRATIONS }}'
