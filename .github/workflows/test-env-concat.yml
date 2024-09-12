@@ -23,13 +23,12 @@ jobs:
           #echo "ADOPTERS=${EXCLUDED_ARCHIVED_REPOS},${DEMONSTRATIONS},${DOCUMENTATION}" >> $GITHUB_ENV
           #echo "ADOPTERS='${{ env.EXCLUDED_ARCHIVED_REPOS }}','${{ env.DEMONSTRATIONS }}','${{ env.DOCUMENTATION }}'" >> $GITHUB_ENV
           
-          ADOPTERS_CONCAT=$(cat << EOF
-          '${{ env.EXCLUDED_ARCHIVED_REPOS }}'
-          ,'${{ env.DEMONSTRATIONS }}'
-          ,'${{ env.DOCUMENTATION }}'
+          ADOPTERS=$(cat << EOF >> $GITHUB_ENV
+          'microcks-keycloak,microcks-go-operator,microcks-azure'
+          ,'microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling'
+          ,'microcks.io'
           EOF
-          )
-          echo ADOPTERS=$ADOPTERS_CONCAT >> $GITHUB_ENV
+          ) 
           
       - name: Contact env
         run: echo "${ADOPTERS}"
