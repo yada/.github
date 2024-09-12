@@ -24,10 +24,9 @@ jobs:
           #echo "ADOPTERS='${{ env.EXCLUDED_ARCHIVED_REPOS }}','${{ env.DEMONSTRATIONS }}','${{ env.DOCUMENTATION }}'" >> $GITHUB_ENV
           
           echo "ADOPTERS= |
-          microcks-keycloak,microcks-go-operator,microcks-azure,
-          microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling
-          microcks.io"
-          >> $GITHUB_ENV
+            microcks-keycloak,microcks-go-operator,microcks-azure,
+            microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling
+            microcks.io" >> $GITHUB_ENV
           
       - name: Contact env
         run: echo "${ADOPTERS}"
