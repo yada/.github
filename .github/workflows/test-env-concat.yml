@@ -1,4 +1,4 @@
-o name: test-env-concat
+name: test-env-concat
 
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
@@ -29,7 +29,6 @@ jobs:
           # Concatenate environment variables and assign them to ADOPTERS
           echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
           #echo "ADOPTERS='${{ env.EXCLUDED_ARCHIVED_REPOS }}','${{ env.DEMONSTRATIONS }}','${{ env.DOCUMENTATION }}'" >> $GITHUB_ENV
-
           
       - name: Contact env
         run: echo "${env.ADOPTERS}"
