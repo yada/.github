@@ -30,8 +30,8 @@ jobs:
           
       - name: Test concatenated env
         run: |
-          echo "${{ env.ADOPTERS }}"
-          echo "${{ env.EXCLUDED_ARCHIVED_REPOS_ENV }}"
-          echo "$EXCLUDED_ARCHIVED_REPOS"
+          #echo "${{ env.ADOPTERS }}"
+          #echo "${{ env.EXCLUDED_ARCHIVED_REPOS_ENV }}"
+          echo "$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION"
         
    
