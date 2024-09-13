@@ -13,25 +13,24 @@ jobs:
     steps:
       - name: Set Delivered Components, Demonstrations, Documentation, Community resources and excluded archived repositories
         run: |
-          #echo "DELIVERED_COMPONENTS=microcks,microcks-cli,microcks-operator,microcks-ansible-operator,microcks-postman-runtime,microcks-testcontainers-java,microcks-testcontainers-go,microcks-testcontainers-node,microcks-quarkus,microcks-java-client,microcks-go-client,microcks-docker-desktop-extension,microcks-backstage-provider,microcks-jenkins-plugin,microcks-spectral-ruleset,import-github-action,test-github-action,hub.microcks.io" >> $GITHUB_ENV
-          #echo "DEMONSTRATIONS=microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling" >> $GITHUB_ENV
-          #echo "DOCUMENTATION=microcks.io" >> $GITHUB_ENV
-          #echo "COMMUNITY_RESOURCES=.github,community,microcks-quickstarters,community-mocks" >> $GITHUB_ENV
-          echo "EXCLUDED_ARCHIVED_REPOS_ENV=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
-
+          # Define environment variables for all repositories concerned by this global workflow
           DELIVERED_COMPONENTS="microcks,microcks-cli,microcks-operator,microcks-ansible-operator,microcks-postman-runtime,microcks-testcontainers-java,microcks-testcontainers-go,microcks-testcontainers-node,microcks-quarkus,microcks-java-client,microcks-go-client,microcks-docker-desktop-extension,microcks-backstage-provider,microcks-jenkins-plugin,microcks-spectral-ruleset,import-github-action,test-github-action,hub.microcks.io"
           DEMONSTRATIONS="microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling"
           DOCUMENTATION="microcks.io"
           COMMUNITY_RESOURCES=".github,community,microcks-quickstarters,community-mocks"
           EXCLUDED_ARCHIVED_REPOS="microcks-keycloak,microcks-go-operator,microcks-azure"
-
-          # Concatenate environment variables and assign them to ADOPTERS
+          
+          # Set environment variables for all repositories concerned by this global workflow
+          # See this issue for more details: https://github.com/microcks/.github/issues/16
+          
+          # Concatenate environment variables to ignore and assign them to CODE_OF_CONDUCT
+          echo "CODE_OF_CONDUCT=$EXCLUDED_ARCHIVED_REPOS" >> $GITHUB_ENV
+          
+          # Concatenate environment variables to ignore and assign them to ADOPTERS
           echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
           
-      - name: Test concatenated env
-        run: |
-          #echo "${{ env.ADOPTERS }}"
-          #echo "${{ env.EXCLUDED_ARCHIVED_REPOS_ENV }}"
-          echo "$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION"
+          echo "${{ env.CODE_OF_CONDUCT }}"
+          echo "${{ env.ADOPTERS }}"
+    
         
    
