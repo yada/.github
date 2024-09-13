@@ -17,7 +17,7 @@ jobs:
           #echo "DEMONSTRATIONS=microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling" >> $GITHUB_ENV
           #echo "DOCUMENTATION=microcks.io" >> $GITHUB_ENV
           #echo "COMMUNITY_RESOURCES=.github,community,microcks-quickstarters,community-mocks" >> $GITHUB_ENV
-          #echo "EXCLUDED_ARCHIVED_REPOS=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
+          echo "EXCLUDED_ARCHIVED_REPOS_ENV=microcks-keycloak,microcks-go-operator,microcks-azure" >> $GITHUB_ENV
 
           DELIVERED_COMPONENTS="microcks,microcks-cli,microcks-operator,microcks-ansible-operator,microcks-postman-runtime,microcks-testcontainers-java,microcks-testcontainers-go,microcks-testcontainers-node,microcks-quarkus,microcks-java-client,microcks-go-client,microcks-docker-desktop-extension,microcks-backstage-provider,microcks-jenkins-plugin,microcks-spectral-ruleset,import-github-action,test-github-action,hub.microcks.io"
           DEMONSTRATIONS="microcks-testcontainers-java-spring-demo,microcks-testcontainers-node-nest-demo,microcks-testcontainers-go-demo,api-lifecycle,api-tooling"
@@ -29,7 +29,9 @@ jobs:
           echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
           
       - name: Test concatenated env
-        run: echo "${{ env.ADOPTERS }}"
-        #run: echo "${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }},${{ env.COMMUNITY_RESOURCES }}"
+        run: |
+          echo "${{ env.ADOPTERS }}"
+          echo "${{ env.EXCLUDED_ARCHIVED_REPOS_ENV }}"
+          echo "$EXCLUDED_ARCHIVED_REPOS"
         
    
