@@ -25,13 +25,11 @@ jobs:
           COMMUNITY_RESOURCES=".github,community,microcks-quickstarters,community-mocks"
           EXCLUDED_ARCHIVED_REPOS="microcks-keycloak,microcks-go-operator,microcks-azure"
 
-          echo "ONE_LINE_TEXT_ENV_VAR=$ONE_LINE_TEXT" >> $GITHUB_ENV
           # Concatenate environment variables and assign them to ADOPTERS
           echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
-          #echo "ADOPTERS='${{ env.EXCLUDED_ARCHIVED_REPOS }}','${{ env.DEMONSTRATIONS }}','${{ env.DOCUMENTATION }}'" >> $GITHUB_ENV
           
-      - name: Contact env
-        run: echo "${env.ADOPTERS}"
+      - name: Test concatenated env
+        run: echo "${{ env.ADOPTERS }}"
         #run: echo "${{ env.EXCLUDED_ARCHIVED_REPOS }},${{ env.DOCUMENTATION }},${{ env.COMMUNITY_RESOURCES }}"
         
    
