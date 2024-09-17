@@ -9,7 +9,11 @@ jobs:
   # Set environment variables for all repositories concerned by this global workflow
   set-env:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step-set-env.outputs.CODE_OF_CONDUCT }}
+      output2: ${{ steps.step-set-env.outputs.ADOPTERS }}
     steps:
+      - id: step-set-env
       - name: Set Delivered Components, Demonstrations, Documentation, Community resources and excluded archived repositories
         run: |
           # Define environment variables for all repositories concerned by this global workflow
@@ -35,7 +39,7 @@ jobs:
     steps:
       - name: print CoC and adopters env
         run: |
-          echo ${{ needs.set-env.outputs.CODE_OF_CONDUCT }}
+          echo ${{ needs.set-env.outputs.output1 }}
           echo ${{ needs.set-env.outputs.ADOPTERS }}
 
    
