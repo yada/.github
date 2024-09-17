@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       CODE_OF_CONDUCT: ${{ steps.step-set-env.outputs.CODE_OF_CONDUCT }}
-      output2: ${{ steps.step-set-env.outputs.ADOPTERS }}
+      ADOPTERS: ${{ steps.step-set-env.outputs.ADOPTERS }}
     steps:
       - id: step-set-env
         run: |
@@ -38,6 +38,6 @@ jobs:
     steps:
       - env:
           CODE_OF_CONDUCT: ${{needs.set-env.outputs.CODE_OF_CONDUCT}}
-          OUTPUT2: ${{needs.set-env.outputs.output2}}
-        run: echo "$CODE_OF_CONDUCT"
+          ADOPTERS: ${{needs.set-env.outputs.ADOPTERS}}
+        run: echo "$CODE_OF_CONDUCT --- $ADOPTERS --- ${{needs.set-env.outputs.ADOPTERS}}"
    
