@@ -30,10 +30,11 @@ jobs:
           # Concatenate environment variables to ignore and assign them to ADOPTERS
           #echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
           ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION"
-
-          #echo "${{ env.CODE_OF_CONDUCT }}"
+  print-env:
+      runs-on: ubuntu-latest
+      name: print env to verify
+      steps:
           echo $CODE_OF_CONDUCT
-          #echo "${{ env.ADOPTERS }}"
           echo $ADOPTERS
     
         
