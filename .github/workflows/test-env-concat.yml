@@ -39,5 +39,5 @@ jobs:
       #- env:
        #   CODE_OF_CONDUCT: ${{needs.set-env.outputs.CODE_OF_CONDUCT}}
         #  ADOPTERS: ${{needs.set-env.outputs.ADOPTERS}}
-      run: echo "${{needs.set-env.outputs.CODE_OF_CONDUCT}} --- ${{needs.set-env.outputs.ADOPTERS}}"
+        run: echo "${{needs.set-env.outputs.CODE_OF_CONDUCT}} --- ${{needs.set-env.outputs.ADOPTERS}}"
    
