@@ -34,7 +34,7 @@ jobs:
           #echo "${{ env.CODE_OF_CONDUCT }}"
           echo $CODE_OF_CONDUCT
           #echo "${{ env.ADOPTERS }}"
-          decho $ADOPTERS
+          echo $ADOPTERS
     
         
    
