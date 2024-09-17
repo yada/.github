@@ -24,13 +24,17 @@ jobs:
           # See this issue for more details: https://github.com/microcks/.github/issues/16
           
           # Concatenate environment variables to ignore and assign them to CODE_OF_CONDUCT
-          echo "CODE_OF_CONDUCT=$EXCLUDED_ARCHIVED_REPOS" >> $GITHUB_ENV
-          
+          #echo "CODE_OF_CONDUCT=$EXCLUDED_ARCHIVED_REPOS" >> $GITHUB_ENV
+          CODE_OF_CONDUCT=$EXCLUDED_ARCHIVED_REPOS"
+
           # Concatenate environment variables to ignore and assign them to ADOPTERS
-          echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
-          
-          echo "${{ env.CODE_OF_CONDUCT }}"
-          echo "${{ env.ADOPTERS }}"
+          #echo "ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION" >> $GITHUB_ENV
+          ADOPTERS=$EXCLUDED_ARCHIVED_REPOS,$DEMONSTRATIONS,$DOCUMENTATION"
+
+          #echo "${{ env.CODE_OF_CONDUCT }}"
+          echo $CODE_OF_CONDUCT
+          #echo "${{ env.ADOPTERS }}"
+          decho $ADOPTERS
     
         
    
