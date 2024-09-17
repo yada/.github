@@ -10,7 +10,7 @@ jobs:
   set-env:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.step-set-env.outputs.CODE_OF_CONDUCT }}
+      CODE_OF_CONDUCT: ${{ steps.step-set-env.outputs.CODE_OF_CONDUCT }}
       output2: ${{ steps.step-set-env.outputs.ADOPTERS }}
     steps:
       - id: step-set-env
@@ -37,7 +37,7 @@ jobs:
     name: print env to verify
     steps:
       - env:
-          OUTPUT1: ${{needs.set-env.outputs.output1}}
+          CODE_OF_CONDUCT: ${{needs.set-env.outputs.CODE_OF_CONDUCT}}
           OUTPUT2: ${{needs.set-env.outputs.output2}}
-        run: echo "$OUTPUT1 $OUTPUT2"
+        run: echo "$CODE_OF_CONDUCT"
    
