@@ -14,7 +14,6 @@ jobs:
       output2: ${{ steps.step-set-env.outputs.ADOPTERS }}
     steps:
       - id: step-set-env
-      - name: Set Delivered Components, Demonstrations, Documentation, Community resources and excluded archived repositories
         run: |
           # Define environment variables for all repositories concerned by this global workflow
           DELIVERED_COMPONENTS="microcks,microcks-cli,microcks-operator,microcks-ansible-operator,microcks-postman-runtime,microcks-testcontainers-java,microcks-testcontainers-go,microcks-testcontainers-node,microcks-quarkus,microcks-java-client,microcks-go-client,microcks-docker-desktop-extension,microcks-backstage-provider,microcks-jenkins-plugin,microcks-spectral-ruleset,import-github-action,test-github-action,hub.microcks.io"
@@ -37,9 +36,8 @@ jobs:
     needs: set-env
     name: print env to verify
     steps:
-      - name: print CoC and adopters env
-        run: |
-          echo ${{ needs.set-env.outputs.output1 }}
-          echo ${{ needs.set-env.outputs.ADOPTERS }}
-
+      - env:
+          OUTPUT1: ${{needs.set-env.outputs.output1}}
+          OUTPUT2: ${{needs.set-env.outputs.output2}}
+        run: echo "$OUTPUT1 $OUTPUT2"
    
