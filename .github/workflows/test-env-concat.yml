@@ -36,8 +36,8 @@ jobs:
     needs: set-env
     name: print env to verify
     steps:
-      - env:
-          CODE_OF_CONDUCT: ${{needs.set-env.outputs.CODE_OF_CONDUCT}}
-          ADOPTERS: ${{needs.set-env.outputs.ADOPTERS}}
-        run: echo "$CODE_OF_CONDUCT --- $ADOPTERS --- ${{needs.set-env.outputs.ADOPTERS}}"
+      #- env:
+       #   CODE_OF_CONDUCT: ${{needs.set-env.outputs.CODE_OF_CONDUCT}}
+        #  ADOPTERS: ${{needs.set-env.outputs.ADOPTERS}}
+      run: echo "${{needs.set-env.outputs.CODE_OF_CONDUCT}} --- ${{needs.set-env.outputs.ADOPTERS}}"
    
