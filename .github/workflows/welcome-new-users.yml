@@ -22,7 +22,7 @@ jobs:
       !contains(fromJson('["dependabot[bot]", "dependabot-preview[bot]", "allcontributors[bot]"]'),
             github.event.pull_request.user.login) ||
       github.event_name == 'issues' &&
-      !contains(fromJson('["dependabot[bot]", "dependabot-preview[bot]", "allcontributors[bot]"]'),
+      !contains(fromJson('["dependabot[bot]", "dependabot-preview[bot]", "allcontributors[bot]"], "micepe"'),
             github.event.issue.user.login)
     runs-on: ubuntu-latest
     steps:
